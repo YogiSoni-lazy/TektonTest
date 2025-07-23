@@ -1,0 +1,25 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: Tekton-Test-deploy
+  title: Deploy Tekton Pipeline via ArgoCD
+  description: Scaffold to deploy Tekton pipeline using ArgoCD
+  tags:
+    - tekton
+    - argocd
+    - ci-cd
+spec:
+  owner: ysoni@redhat.com
+  type: service
+
+  steps:
+    - id: deploy-tekton-pipeline
+      name: Deploy Tekton Pipeline via ArgoCD App
+      action: argocd:create-resources
+      input:
+        projectName: new-argocd-app
+        appName: DemoTest-tekton-ci
+        argoInstance: default
+        namespace: demo-project
+        repoURL: https://github.com/YogiSoni-lazy/TektonTest.git
+        path: 'tekton'
