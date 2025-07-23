@@ -3,10 +3,10 @@ apiVersion: tekton.dev/v1
 kind: PipelineRun
 metadata:
   name: technova-weather-app-run
-  namespace: ${{ values.namespace }}
+  namespace: demo-project
 spec:
   pipelineRef:
-    name: technova-weather-app
+    name: technova-weather-app-tektontest
   params:
     - name: ARGOCD_SERVER
       value: openshift-gitops-server.openshift-gitops.svc:80
