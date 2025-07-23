@@ -18,7 +18,7 @@ spec:
       action: argocd:create-resources
       input:
         projectName: new-argocd-app
-        appName: DemoTest-tekton-ci
+        appName: demotest-tekton-ci
         argoInstance: default
         namespace: demo-project
         repoUrl: https://github.com/YogiSoni-lazy/TektonTest.git
